@@ -1,0 +1,70 @@
+body {
+  font-family: 'Cairo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animation fade-in pour le contenu principal */
+#root > * {
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation de survol sur les boutons principaux */
+button, .btn, a.button, a.inline-flex, .hover\:scale-105 {
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+button:hover, .btn:hover, a.button:hover, a.inline-flex:hover, .hover\:scale-105:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.08);
+}
+
+/* Animation d'apparition pour les sections */
+section {
+  animation: sectionFadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animation sur les images (zoom léger au survol) */
+img, .object-cover {
+  transition: transform 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+img:hover, .object-cover:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.10);
+}
+
+/* Animation sur les liens de navigation */
+nav a, .text-sm.font-medium {
+  transition: color 0.3s, border 0.3s, background 0.3s, transform 0.3s;
+}
+nav a:hover, .text-sm.font-medium:hover {
+  color: #dc2626; /* rouge Tailwind */
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Animations personnalisées pour la Hero Section de About */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInDown {
+  animation: fadeInDown 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
+}
